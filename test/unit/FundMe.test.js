@@ -28,9 +28,7 @@ const { developmentChains } = require("../../helper-hardhat-config");
 
       describe("fund", function () {
         it("Fails if you don't send enough eth", async function () {
-          await expect(fundMe.fund()).to.be.revertedWith(
-            "Minimum fund requirement is 50USD"
-          );
+          await expect(fundMe.fund()).to.be.revertedWith("Not enough ETH!");
         });
         it("Updates the amount funded data structure", async function () {
           await fundMe.fund({ value: sendValue });

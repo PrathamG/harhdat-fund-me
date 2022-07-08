@@ -43,9 +43,9 @@ contract FundMe {
     function fund() public payable {
         require(
             msg.value.getConversionRate(s_priceFeed) > MINIMUM_USD,
-            "Minimum fund requirement is 50USD"
+            "Not enough ETH!"
         );
-        //emit Test(msg.value.getConversionRate());
+
         if (s_addressToAmountFunded[msg.sender] == 0) {
             s_funders.push(msg.sender);
         }
